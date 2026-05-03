@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  exercises:
+    build: .
+    container_name: exercises_container
+    # Keep the container running so it doesn't exit immediately
+    tty: true 
+    stdin_open: true
+    volumes:
+      # Bind mount: [Host Path]:[Container Path]
+      - .:/workspace
+    working_dir: /workspace
+    # Optional: If you use Node.js, Python, etc., 
+    # add the command to start your "watch" mode here:
+    # command: npm run dev
